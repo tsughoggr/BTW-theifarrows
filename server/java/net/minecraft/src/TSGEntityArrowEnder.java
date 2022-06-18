@@ -90,13 +90,13 @@ public class TSGEntityArrowEnder extends TSGEntityArrow implements FCIEntityPack
 
 				}
 				if(worldObj.getBlockId(pos.blockX + xh, pos.blockY + yh, pos.blockZ + zh) == 0 && worldObj.getBlockId(pos.blockX + xh, pos.blockY + yh + 1, pos.blockZ + zh) == 0  ){
-					((EntityLiving)this.shootingEntity).setPositionAndUpdate(pos.blockX + xh, pos.blockY + yh, pos.blockZ + zh);
+					((EntityLiving)(this.shootingEntity)).setPositionAndUpdate(pos.blockX + xh, pos.blockY + yh, pos.blockZ + zh);
 					FCUtilsItem.EjectStackWithRandomOffset(worldObj, pos.blockX + xh, pos.blockY + yh, pos.blockZ + zh, new ItemStack(GetCorrespondingItem()));
 					this.setDead();
 					return;
 	
 				} else if(worldObj.getBlockId(pos.blockX + xh, pos.blockY + yh, pos.blockZ + zh) == 0 && worldObj.getBlockId(pos.blockX + xh, pos.blockY + yh - 1, pos.blockZ + zh) == 0  ){
-					((EntityLiving)this.shootingEntity).setPositionAndUpdate(pos.blockX + xh, pos.blockY + yh - 1, pos.blockZ + zh);
+					((EntityLiving)(this.shootingEntity)).setPositionAndUpdate(pos.blockX + xh, pos.blockY + yh - 1, pos.blockZ + zh);
 					FCUtilsItem.EjectStackWithRandomOffset(worldObj, pos.blockX + xh, pos.blockY + yh - 1 , pos.blockZ + zh, new ItemStack(GetCorrespondingItem()));
 					this.setDead();
 					return;
@@ -109,7 +109,7 @@ public class TSGEntityArrowEnder extends TSGEntityArrow implements FCIEntityPack
 					for( int j:ja){
 						for(int k:ka){
 							if(worldObj.getBlockId((int)pos.blockX + j, (int) pos.blockY + i, (int)pos.blockZ + k) == 0 && worldObj.getBlockId((int)pos.blockX + j, (int) pos.blockY + i + 1, (int)pos.blockZ + k) == 0){
-								((EntityLiving)this.shootingEntity).setPositionAndUpdate(pos.blockX + j, pos.blockY + i, pos.blockZ + k);
+								((EntityLiving)(this.shootingEntity)).setPositionAndUpdate(pos.blockX + j, pos.blockY + i, pos.blockZ + k);
 								FCUtilsItem.EjectStackWithRandomOffset(worldObj, pos.blockX + j, pos.blockY + i, pos.blockZ + k, new ItemStack(GetCorrespondingItem()));
 								this.setDead();
 	
@@ -119,7 +119,7 @@ public class TSGEntityArrowEnder extends TSGEntityArrow implements FCIEntityPack
 						}
 					}
 				}
-				((EntityLiving)this.shootingEntity).setPositionAndUpdate(pos.blockX , pos.blockY, pos.blockZ );
+				((EntityLiving)(this.shootingEntity)).setPositionAndUpdate(pos.blockX , pos.blockY, pos.blockZ );
 
 			}
 			FCUtilsItem.EjectStackWithRandomOffset(worldObj, (int)posX, (int)posY, (int)posZ, new ItemStack(GetCorrespondingItem()));
@@ -160,7 +160,7 @@ public class TSGEntityArrowEnder extends TSGEntityArrow implements FCIEntityPack
 			((EntityLiving)ent).setPositionAndUpdate(shootingEntity.posX, shootingEntity.posY, shootingEntity.posZ);
 
 			if(!(this.shootingEntity instanceof EntityPlayerMP) || ((!((EntityPlayerMP)this.shootingEntity).playerNetServerHandler.connectionClosed) && (((EntityPlayerMP)this.shootingEntity).worldObj == this.worldObj) )){
-				((EntityLiving)this.shootingEntity).setPositionAndUpdate(epx, epy, epz);
+				((EntityLiving)(this.shootingEntity)).setPositionAndUpdate(epx, epy, epz);
 
 				if(ere != null){
 					this.shootingEntity.mountEntity(ere);
